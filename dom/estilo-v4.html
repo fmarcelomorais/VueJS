@@ -1,0 +1,55 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="app">
+    <div class="caixas">
+
+        <div class="demo" :style="{'background-color': cor}">Demo 1</div>
+        <div class="demo" >Demo 2</div>
+        <div class="demo" >Demo 3</div>
+       
+    </div>
+    <hr>
+    <input type="text" v-model="cor">
+
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+           cor: '#'
+        },
+        computed:{
+            meuEstilo(){
+                return {
+                    backgroundColor: this.cor
+                }
+            }
+        }
+    })
+</script>
+
+
+<style>
+    .caixas{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .demo{
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+    .c1{
+        background-color: rebeccapurple;
+    }
+    .c2{
+        background-color: red;
+    }
+    .c3{
+        background-color: rgb(34, 231, 8);
+    }
+
+</style>

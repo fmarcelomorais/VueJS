@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="app">
+    <p >{{ titulo }}</p>
+    <p v-once>Bom Dia {{ nome }}</p>
+    <p>Bom Dia {{ saudacao() }}</p>
+    <a :href="link" target="blank">VueJs</a>
+    <hr>
+    <p v-html="linkHtml"></p>
+</div>
+
+
+
+<script>
+    new Vue({
+        el: '#app',
+
+        data: {
+            titulo: 'Usando Vue Js',
+            nome: 'Marcelo Morais',
+            link: 'https://vuejs.org/',
+            linkHtml: '<a href="https://vuejs.org/">Vue</a>'
+        },
+        
+        methods:{
+            saudacao() {
+                this.nome = 'Elidiane'
+                return this.nome
+            }
+        }
+    })
+</script>

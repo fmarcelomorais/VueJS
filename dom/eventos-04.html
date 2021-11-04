@@ -1,0 +1,41 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="app">
+    <h2>Contador</h2>
+    <hr>
+    <p>{{ contador }}</p>
+    <button @click="somar(passo, $event)">Somar {{passo}} </button>
+    <hr>
+    <p @mousemove="mouse">Mouse {{ x }} e {{ y }}
+        <br>
+        <span @mousemove.stop>Parar Propagação</span>
+    </p>
+</div>
+
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+            passo: 0,
+        },
+        methods: {
+            somar(passo, e){
+                this.passo = e.clientY;
+                passo = this.passo
+                this.contador += passo;
+            },
+            mouse(e){
+                this.x = e.clientX;
+                this.y = e.clientY;
+            }
+        },
+        mounted() {
+            //this.passo = passo;
+        },
+    })
+</script>
